@@ -6,6 +6,7 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from '../components/Profile';
 import { CompletedChallenges } from '../components/CompletedChallenges';
 import { CountDown } from '../components/CountDown';
+import { ChallengeBox } from '../components/ChallengeBox';
 
 export default function Home() {
   return (
@@ -23,11 +24,11 @@ export default function Home() {
           <CountDown />
         </div>
         <div>
-          teste2
+          <ChallengeBox />
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 /*
