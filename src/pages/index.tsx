@@ -1,17 +1,55 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+
+import styles from '../styles/pages/Home.module.css';
+
+import { ExperienceBar } from "../components/ExperienceBar";
+import { Profile } from '../components/Profile';
+import { CompletedChallenges } from '../components/CompletedChallenges';
+import { CountDown } from '../components/CountDown';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Move It Yourself | MiY</title>
+      </Head>
+
+      <ExperienceBar />
+
+    <section>
+        <div>
+          <Profile />
+          <CompletedChallenges />
+          <CountDown />
+        </div>
+        <div>
+          teste2
+        </div>
+      </section>
+    </div>
+  )
+}
+
+/*
+      <div>
+        <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
+        </Head>
+      </div>
+*/
+
+/*
+    <div className={styles.container}>
+      <Head>
+        <title>Hello NLW#04</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Hello NLW ! and <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
@@ -61,5 +99,4 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
-}
+*/

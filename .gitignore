@@ -12,6 +12,12 @@
 /.next/
 /out/
 
+# trash
+/public/trash
+src/components/trash
+src/pages/trash
+src/styles/trash
+
 # production
 /build
 

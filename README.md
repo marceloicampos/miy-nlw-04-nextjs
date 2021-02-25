@@ -2,6 +2,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+miy-nlw-04-react
+
+install typescript
+
+touch tsconfig.json
+
+npm install --save-dev typescript @types/react @types/react-dom @types/node
+
 First, run the development server:
 
 ```bash
