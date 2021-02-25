@@ -4,13 +4,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 miy-nlw-04-react
 
-install typescript
+--- install typescript ---
 
 touch tsconfig.json
 
 npm install --save-dev typescript @types/react @types/react-dom @types/node
 
-First, run the development server:
+---------------------------
+
+git status
+git add -A
+git commit -m 'description'
+git push origin main
+
+---------------------------
+
+Run the development server:
 
 ```bash
 npm run dev
