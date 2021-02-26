@@ -1,13 +1,17 @@
-import { useState, useEffect, useContext } from 'react';
+//import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
+
 import { MdPlayArrow, MdClose, MdCheckCircle } from 'react-icons/md';
 
-import { ChallengesContext } from '../contexts/ChallengesContext';
+import { CountdownContext } from '../contexts/CountdownContext';
 
 import styles from '../styles/components/CountDown.module.css';
 
-let countdownTimeout: NodeJS.Timeout;
+//let countdownTimeout: NodeJS.Timeout;
 
 export function CountDown() {
+
+/*
   const { startNewChallenge } = useContext(ChallengesContext);
 
   const [time, setTime] = useState(0.1 * 60);
@@ -16,10 +20,21 @@ export function CountDown() {
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;;
+*/
+
+const {
+    minutes,
+    seconds,
+    hasFinished,
+    isActive,
+    startCountDown,
+    resetCountDown
+} = useContext(CountdownContext)
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
+/*
   function startCountDown() {
     setIsActive(true);
   }
@@ -42,6 +57,7 @@ export function CountDown() {
       console.log('finalizou a tarefa');
     }
   }, [isActive, time])
+  */
 
   return (
     <div>
