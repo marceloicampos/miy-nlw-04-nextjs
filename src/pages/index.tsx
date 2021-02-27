@@ -1,38 +1,89 @@
 import Head from 'next/head';
 
+import { GetServerSideProps } from 'next';
+
 import styles from '../styles/pages/Home.module.css';
 
 import { ExperienceBar } from "../components/ExperienceBar";
+import { CountDown } from '../components/CountDown';
 import { Profile } from '../components/Profile';
 import { CompletedChallenges } from '../components/CompletedChallenges';
-import { CountDown } from '../components/CountDown';
 import { ChallengeBox } from '../components/ChallengeBox';
 import { CountdownProvider } from '../contexts/CountdownContext';
+import { ChallengesProvider } from '../contexts/ChallengesContext';
 
-export default function Home() {
+import React from 'react';
+
+interface HomeProps {
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+}
+
+export default function Home(props: HomeProps) {
+
+console.log('props recebidos no client', props)
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Move It Yourself | MiY</title>
-      </Head>
-
-      <ExperienceBar />
-
-      <CountdownProvider>
-        <section>
-          <div>
-            <Profile />
-            <CompletedChallenges />
-            <CountDown />
-          </div>
-          <div>
-            <ChallengeBox />
-          </div>
-        </section>
-      </CountdownProvider>
-    </div>
+    <ChallengesProvider
+    level={props.level}
+    currentExperience={props.currentExperience}
+    challengesCompleted={props.challengesCompleted}
+    >
+      <div className={styles.container}>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <title>Move It Yourself | MiY</title>
+        </Head>
+        <ExperienceBar />
+        <CountdownProvider>
+          <section>
+            <div>
+              <Profile />
+              <CompletedChallenges />
+              <CountDown />
+            </div>
+            <div>
+              <ChallengeBox />
+            </div>
+          </section>
+        </CountdownProvider>
+      </div>
+    </ChallengesProvider>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+
+// chamada da API
+
+/*   const user = {
+    level: 1,
+    currentExperience: 590,
+    challengesCompleted: 3
+  } */
+
+//console.log('props recebidos no server', user)
+
+console.log('props recebidos no server', level, currentExperience, challengesCompleted)
+
+  return {
+    props: {
+      level: Number (level),
+      currentExperience: Number (currentExperience),
+      challengesCompleted: Number (challengesCompleted)
+    }
+  }
+}
+
+//getServerSideProps - manipule os dados da camada 'back end framework" para camada front end >>> ANTES de CONSTRUIR <<< 
+// a camada interface do Front End
+
+// Back End - JavaScript
+// FrameWork - Next.JS (with Node.JS - JavaScript Interpreter) - FIRST CALL, BUILD FRONT END, CALLING BACK END
+// Front End - React
 
 /*
       <div>

@@ -1,26 +1,14 @@
-//import { useState, useEffect, useContext } from 'react';
 import { useContext } from 'react';
 
 import { MdPlayArrow, MdClose, MdCheckCircle } from 'react-icons/md';
+
+import { HiCheckCircle } from 'react-icons/hi';
 
 import { CountdownContext } from '../contexts/CountdownContext';
 
 import styles from '../styles/components/CountDown.module.css';
 
-//let countdownTimeout: NodeJS.Timeout;
-
 export function CountDown() {
-
-/*
-  const { startNewChallenge } = useContext(ChallengesContext);
-
-  const [time, setTime] = useState(0.1 * 60);
-  const [isActive, setIsActive] = useState(false);
-  const [hasFinished, setHasFinished] = useState(false);
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;;
-*/
 
 const {
     minutes,
@@ -33,31 +21,6 @@ const {
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
-
-/*
-  function startCountDown() {
-    setIsActive(true);
-  }
-
-  function resetCountDown() {
-    clearTimeout(countdownTimeout);
-    setIsActive(false);
-    setTime(0.1 * 60);
-  }
-
-  useEffect(() => {
-    if (isActive && time > 0) {
-      countdownTimeout = setTimeout(() => {
-        setTime(time - 1);
-      }, 1000)
-    } else if (isActive && time === 0) {
-      setHasFinished(true);
-      setIsActive(false);
-      startNewChallenge();
-      console.log('finalizou a tarefa');
-    }
-  }, [isActive, time])
-  */
 
   return (
     <div>
@@ -73,17 +36,14 @@ const {
         </div>
       </div>
 
-{/*        { hasFinished && (
-       <p>Terminou</p>
-       ) } */}
-
       { hasFinished ? (
         <button
         disabled
         className={styles.countDownButton}
         >
         Ciclo Encerrado
-        <MdCheckCircle size={24} />
+        {/* <MdCheckCircle size={24} /> */}
+        <HiCheckCircle size={30}/>
         </button>
       ) : (
         <>
@@ -94,7 +54,8 @@ const {
           onClick={resetCountDown}
         >
           Abandonar Ciclo
-          <MdClose size={24} />
+          {/* <img src="./icons/close.svg" alt="close icon" /> */}
+          <MdClose size={30} />
         </button>
         ) : (
           <button
@@ -103,7 +64,8 @@ const {
           onClick={startCountDown}
         >
           Iniciar Ciclo
-          <MdPlayArrow size={24} />
+          {/* <img src="./icons/play-arrow.svg" alt="play arrow  icon" /> */}
+          <MdPlayArrow size={30} />
         </button>
         ) }
         </>

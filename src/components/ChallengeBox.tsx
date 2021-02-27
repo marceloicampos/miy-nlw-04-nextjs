@@ -60,7 +60,7 @@ export function ChallengeBox() {
           </strong>
           <p>
             <img src="./icons/level-up.svg" alt="Level Up" />
-            Complete-os e ganhe experiência e avance de level.
+            Complete os desafios e ganhe experiência e avance de level.
           </p>
         </div>
       )}

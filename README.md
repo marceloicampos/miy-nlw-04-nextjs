@@ -19,6 +19,38 @@ git push origin main
 
 ---------------------------
 
+VERCEL CLI
+
+npm i -g vercel
+
+vercel -h
+
+vercel login
+
+vercel (first deploy)
+
+vercel --prod (deploy production)
+
+---------------------------
+
+NEXT STEP
+
+EASY >>> expand level advancement information
+
+oauth with github
+
+leaderboard page with others users (with 2 side left buttons: home application and leaderboard)
+
+about page with others projects
+
+share level and project on social networks
+
+use serveless
+
+https://www.figma.com/file/vRbW1u0CEZuG2zE6bU5qLg/Move.it-2.0/duplicate?node-id=160%3A2761
+
+---------------------------
+
 Run the development server:
 
 ```bash
