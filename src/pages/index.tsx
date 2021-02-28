@@ -1,3 +1,5 @@
+
+
 import Head from 'next/head';
 
 import { GetServerSideProps } from 'next';
@@ -22,7 +24,7 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
 
-console.log('props recebidos no client', props)
+//console.log('props recebidos no client', props)
 
   return (
     <ChallengesProvider
@@ -33,7 +35,7 @@ console.log('props recebidos no client', props)
       <div className={styles.container}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          {/* <meta http-equiv="X-UA-Compatible" content="IE=edge" /> */}
           <title>Move It Yourself | MiY</title>
         </Head>
         <ExperienceBar />
@@ -67,13 +69,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 //console.log('props recebidos no server', user)
 
-console.log('props recebidos no server', level, currentExperience, challengesCompleted)
+//console.log('props recebidos no server', level, currentExperience, challengesCompleted)
 
   return {
     props: {
-      level: Number (level),
-      currentExperience: Number (currentExperience),
-      challengesCompleted: Number (challengesCompleted)
+      level: Number (level ?? 1),
+      currentExperience: Number (currentExperience ?? 0),
+      challengesCompleted: Number (challengesCompleted ?? 0)
     }
   }
 }
